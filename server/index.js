@@ -8,7 +8,9 @@ app.use(compression({
     memLevel: 9,
     threshold: 0
 }));
-app.use(express.static(__dirname + '/../react-ui/build'));
+app.use(express.static(__dirname + '/../react-ui/build', {
+  maxAge: '1y'
+}));
 
 app.get('/api', function (req, res) {
   res.set('Content-Type', 'application/json');
